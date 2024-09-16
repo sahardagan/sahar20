@@ -1,38 +1,387 @@
-.App {
+/* הגדרות כלליות */
+body {
+  font-family: 'Cinzel', serif;
+  /* שימוש בפונט ייחודי */
   text-align: center;
+  background-size: cover;
+  color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  direction: rtl;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* עיצוב לכל רכיבי האפליקציה */
+#game {
+  margin: 50px auto;
+  max-width: 700px;
+  /* הרחבת רוחב המקסימום */
+  background: rgba(255, 255, 255, 0.8);
+  /* רקע שקוף לבן */
+  border-radius: 15px;
+  /* פינות עגלגלות */
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  /* צל להדגשה */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* כפתורים */
+button {
+  display: block;
+  margin: 15px auto;
+  /* מרווח גבוה יותר בין כפתורים */
+  padding: 12px 24px;
+  /* הגדלת הכפתורים */
+  font-size: 18px;
+  /* גודל טקסט גדול יותר */
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  /* פינות עגלגלות גדולות יותר */
+  color: #ffffff;
+  background-color: #007bff;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+button:active {
+  background-color: #004085;
+}
+
+/* Login */
+.login-container {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.9);
+  /* רקע שקוף לבן */
+}
+
+.login-container h1 {
+  margin-top: 0;
+  font-size: 2em;
+  /* גודל טקסט גדול יותר */
+}
+
+.login-container input {
+  padding: 12px;
+  font-size: 18px;
+  /* גודל טקסט גדול יותר */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  /* מרווח גדול יותר בין השדות */
+  width: 100%;
+}
+
+.login-container button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.login-container button:hover {
+  background-color: #0056b3;
+}
+
+/* Question Component */
+.question-component {
+  background-color: #f9f9f9;
+  /* צבע רקע בהיר יותר עבור השאלה */
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  /* צל נוסף להבלטת רכיב השאלה */
+  margin: 30px auto;
+  max-width: 600px;
+  border: 2px solid #ddd;
+  /* גבול צבעוני להדגשה */
+  background: rgba(255, 255, 255, 0.95);
+  /* רקע לבן עם שקיפות קלה */
+}
+
+.question-component h2 {
+  margin-top: 0;
+  font-size: 1.8em;
+  color: #333;
+  /* צבע טקסט כהה כדי להבטיח קריאות טובה */
+}
+
+.question-text {
+  font-size: 1.5em;
+  /* גודל טקסט גדול יותר לשאלה */
+  color: #222;
+  /* צבע כהה יותר לשאלה עצמה */
+  margin-bottom: 20px;
+  /* מרווח בין השאלה לתשובות */
+}
+
+/* Answers */
+.answers {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 15px;
 }
 
-.App-link {
-  color: #61dafb;
+.answers button {
+  background-color: #28a745;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 15px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.answers button:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+.answers button:active {
+  background-color: #1e7e34;
+}
+
+/* Game Info */
+.game-info {
+  background-color: #e3e3e3;
+  /* צבע רקע בהיר להדגשה */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+
+.game-info p {
+  margin: 10px 0;
+  /* מרווחים בין פסקאות */
+  font-size: 18px;
+  /* גודל טקסט גדול יותר */
+  color: #333;
+  /* צבע טקסט כהה יותר להבהרה */
+}
+
+/* Result */
+.result-container {
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 30px auto;
+  max-width: 600px;
+  /* הרחבת רוחב המקסימום */
+  background: rgba(255, 255, 255, 0.9);
+  /* רקע שקוף לבן */
+}
+
+.result-container h2 {
+  margin-top: 0;
+  font-size: 2em;
+  /* גודל טקסט גדול יותר */
+}
+
+/* Media Queries */
+
+/* Large Desktops */
+@media (min-width: 1200px) {
+  #game {
+    max-width: 800px;
+    /* הרחבת רוחב המקסימום */
+    padding: 30px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .login-container {
+    max-width: 500px;
+  }
+
+  .question-component {
+    max-width: 700px;
+    padding: 40px;
+  }
+
+  .result-container {
+    max-width: 700px;
+    padding: 40px;
+  }
+}
+
+/* Medium Desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+  #game {
+    max-width: 750px;
+    padding: 25px;
+  }
+
+  .login-container {
+    max-width: 450px;
+  }
+
+  .question-component {
+    max-width: 650px;
+    padding: 35px;
+  }
+
+  .result-container {
+    max-width: 650px;
+    padding: 35px;
+  }
+}
+
+/* Tablets */
+@media (min-width: 768px) and (max-width: 991px) {
+  #game {
+    max-width: 700px;
+    padding: 20px;
+  }
+
+  .login-container {
+    max-width: 400px;
+  }
+
+  .question-component {
+    max-width: 600px;
+    padding: 30px;
+  }
+
+  .result-container {
+    max-width: 600px;
+    padding: 30px;
+  }
+}
+
+/* Mobile Landscape */
+@media (min-width: 576px) and (max-width: 767px) {
+  #game {
+    max-width: 90%;
+    padding: 15px;
+  }
+
+  .login-container {
+    max-width: 350px;
+  }
+
+  .question-component {
+    max-width: 90%;
+    padding: 25px;
+  }
+
+  .result-container {
+    max-width: 90%;
+    padding: 25px;
+  }
+
+  button {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+}
+
+/* Mobile Portrait */
+@media (max-width: 575px) {
+  #game {
+    max-width: 90%;
+    padding: 10px;
+  }
+
+  .login-container {
+    max-width: 90%;
+  }
+
+  .question-component {
+    max-width: 90%;
+    padding: 20px;
+  }
+
+  .result-container {
+    max-width: 90%;
+    padding: 20px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .question-text {
+    font-size: 1.2em;
+  }
+}
+
+/* Mobile Extra Small (עד 400px) */
+@media (max-width: 400px) {
+  #game {
+    max-width: 95%;
+    padding: 8px;
+  }
+
+  .login-container {
+    max-width: 95%;
+    padding: 20px;
+  }
+
+  .question-component {
+    max-width: 95%;
+    padding: 15px;
+  }
+
+  .result-container {
+    max-width: 95%;
+    padding: 15px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 8px 14px;
+  }
+
+  .question-text {
+    font-size: 1.1em;
+  }
+}
+
+/* Mobile Extra Extra Small (עד 350px) */
+@media (max-width: 350px) {
+  #game {
+    max-width: 100%;
+    padding: 6px;
+  }
+
+  .login-container {
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  .question-component {
+    max-width: 100%;
+    padding: 12px;
+  }
+
+  .result-container {
+    max-width: 100%;
+    padding: 12px;
+  }
+
+  button {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .question-text {
+    font-size: 1em;
   }
 }

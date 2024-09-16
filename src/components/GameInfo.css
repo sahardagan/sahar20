@@ -1,0 +1,181 @@
+/* .game-info-container */
+.game-info-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-info-content {
+    background-size: cover;
+    padding: 30px;
+    border-radius: 15px;
+    color: #fff;
+    width: 80%;
+    max-width: 800px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+}
+
+.game-info-content h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.game-info-content p,
+.game-info-content ul {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.game-info-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.game-info-content li {
+    background: rgba(255, 255, 255, 0.2);
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.game-info-close {
+    background: #f1c40f;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* Media Queries */
+
+/* Large Desktops */
+@media (min-width: 1200px) {
+    .game-info-content {
+        padding: 40px;
+        max-width: 900px;
+    }
+
+    .game-info-content h1 {
+        font-size: 36px;
+    }
+
+    .game-info-content p,
+    .game-info-content ul {
+        font-size: 20px;
+    }
+}
+
+/* Medium Desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .game-info-content {
+        padding: 35px;
+        max-width: 850px;
+    }
+
+    .game-info-content h1 {
+        font-size: 34px;
+    }
+
+    .game-info-content p,
+    .game-info-content ul {
+        font-size: 19px;
+    }
+}
+
+/* Tablets */
+@media (min-width: 768px) and (max-width: 991px) {
+    .game-info-content {
+        padding: 30px;
+        max-width: 750px;
+    }
+
+    .game-info-content h1 {
+        font-size: 30px;
+    }
+
+    .game-info-content p,
+    .game-info-content ul {
+        font-size: 18px;
+    }
+}
+
+/* Mobile Landscape */
+@media (min-width: 576px) and (max-width: 767px) {
+    .game-info-content {
+        padding: 25px;
+        max-width: 90%;
+    }
+
+    .game-info-content h1 {
+        font-size: 28px;
+    }
+
+    .game-info-content p,
+    .game-info-content ul {
+        font-size: 16px;
+    }
+
+    .game-info-close {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+}
+
+/* Mobile Portrait */
+@media (max-width: 575px) {
+    .game-info-content {
+        padding: 20px;
+        max-width: 90%;
+    }
+
+    .game-info-content h1 {
+        font-size: 24px;
+    }
+
+    .game-info-content p,
+    .game-info-content ul {
+        font-size: 14px;
+    }
+
+    .game-info-close {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+}
+
+/* Very Small Devices */
+@media (max-width: 400px) {
+    .game-info-content {
+        padding: 15px;
+        max-width: 100%;
+    }
+
+    .game-info-content h1 {
+        font-size: 20px;
+    }
+
+    .game-info-content p,
+    .game-info-content ul {
+        font-size: 12px;
+    }
+
+    .game-info-close {
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+
+    .game-info-content li {
+        font-size: 12px;
+        padding: 8px;
+    }
+}

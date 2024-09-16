@@ -1,0 +1,221 @@
+/* .leaderboard-container */
+.leaderboard-container {
+    background-color: #fff;
+    /* רקע לבן */
+    border: 2px solid #8B4513;
+    /* צבע חום עץ */
+    border-radius: 15px;
+    padding: 20px;
+    max-width: 700px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
+    font-family: 'Cinzel', serif;
+    /* שימוש בפונט ייחודי */
+}
+
+/* רקע עבור התוכן */
+.leaderboard-container::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+    background-size: contain;
+    z-index: -1;
+    opacity: 0.3;
+}
+
+.leaderboard-container h2 {
+    text-align: center;
+    color: #8B4513;
+    /* צבע חום עץ */
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.leaderboard-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.leaderboard-container li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    border-bottom: 1px solid #6B4C41;
+    /* צבע חום כהה */
+    color: #333;
+    /* צבע טקסט כהה */
+    position: relative;
+    /* חשוב למיקום המדליה */
+}
+
+.leaderboard-container li:last-child {
+    border-bottom: none;
+}
+
+/* צבעים לפי מקום - רקע */
+.leaderboard-container .first {
+    background-color: #FFD700;
+    /* צבע זהב */
+}
+
+.leaderboard-container .second {
+    background-color: #C0C0C0;
+    /* צבע כסף */
+}
+
+.leaderboard-container .third {
+    background-color: #cd7f32;
+    /* צבע ברונזה */
+}
+
+/* הגדרות עבור מדליות */
+.leaderboard-container .medal {
+    font-size: 1.5em;
+    /* גודל אייקון מדליה */
+    margin-left: 10px;
+    position: absolute;
+    /* מיקום מדליה */
+    right: 15px;
+    /* מיקום ימני */
+    top: 50%;
+    /* מיקום אנכי */
+    transform: translateY(-50%);
+    /* מרכז אנכי */
+}
+
+/* מדליה זהב */
+.leaderboard-container .gold {
+    color: #FFD700;
+    /* צבע זהב */
+}
+
+/* מדליה כסף */
+.leaderboard-container .silver {
+    color: #C0C0C0;
+    /* צבע כסף */
+}
+
+/* מדליה ברונזה */
+.leaderboard-container .bronze {
+    color: #cd7f32;
+    /* צבע ברונזה */
+}
+
+/* Media Queries */
+
+/* Large Desktops */
+@media (min-width: 1200px) {
+    .leaderboard-container {
+        padding: 30px;
+        max-width: 900px;
+    }
+
+    .leaderboard-container h2 {
+        font-size: 3em;
+    }
+
+    .leaderboard-container li {
+        padding: 15px;
+    }
+}
+
+/* Medium Desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .leaderboard-container {
+        padding: 25px;
+        max-width: 800px;
+    }
+
+    .leaderboard-container h2 {
+        font-size: 2.8em;
+    }
+
+    .leaderboard-container li {
+        padding: 12px;
+    }
+}
+
+/* Tablets */
+@media (min-width: 768px) and (max-width: 991px) {
+    .leaderboard-container {
+        padding: 20px;
+        max-width: 600px;
+    }
+
+    .leaderboard-container h2 {
+        font-size: 2.5em;
+    }
+
+    .leaderboard-container li {
+        padding: 10px;
+    }
+}
+
+/* Mobile Landscape */
+@media (min-width: 576px) and (max-width: 767px) {
+    .leaderboard-container {
+        padding: 15px;
+        max-width: 90%;
+    }
+
+    .leaderboard-container h2 {
+        font-size: 2em;
+    }
+
+    .leaderboard-container li {
+        padding: 8px;
+    }
+}
+
+/* Mobile Portrait */
+@media (max-width: 575px) {
+    .leaderboard-container {
+        padding: 10px;
+        max-width: 90%;
+    }
+
+    .leaderboard-container h2 {
+        font-size: 1.8em;
+    }
+
+    .leaderboard-container li {
+        padding: 6px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .leaderboard-container li span {
+        margin-top: 5px;
+    }
+}
+
+/* Very Small Devices */
+@media (max-width: 400px) {
+    .leaderboard-container {
+        padding: 8px;
+        max-width: 100%;
+    }
+
+    .leaderboard-container h2 {
+        font-size: 1.6em;
+    }
+
+    .leaderboard-container li {
+        padding: 4px;
+        flex-direction: column;
+        align-items: center;
+        font-size: 14px;
+        /* גודל טקסט קטן יותר */
+    }
+
+    .leaderboard-container li span {
+        margin-top: 3px;
+    }
+}
