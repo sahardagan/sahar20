@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "./build/static/css/main.9fb43928.css",
-    "main.js": "./build/static/js/main.a35b966c.js",
-    "index.html": "./build/index.html",
-    "main.9fb43928.css.map": "./build/static/css/main.9fb43928.css.map",
-    "main.a35b966c.js.map": "./build/static/js/main.a35b966c.js.map"
+    "main.css": "../trivia-game/build/static/css/main.9fb43928.css",
+    "main.js": "../trivia-game/build/static/js/main.a35b966c.js",
+    "index.html": "../trivia-game/build/index.html",
+    "main.9fb43928.css.map": "../trivia-game/build/static/css/main.9fb43928.css.map",
+    "main.a35b966c.js.map": "../trivia-game/build/static/js/main.a35b966c.js.map"
   },
   "entrypoints": [
     "static/css/main.9fb43928.css",
