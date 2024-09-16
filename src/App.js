@@ -1,5 +1,5 @@
-// src/App.js
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'; // ייבוא של useNavigate
 import Question from './components/QuestionComponent';
 import Result from './components/Result';
 import Login from './components/Login';
@@ -14,6 +14,7 @@ const getStageQuestions = (stage) => {
 };
 
 const App = () => {
+  const navigate = useNavigate(); // יצירת מופע של useNavigate
   const [playerName, setPlayerName] = useState('');
   const [currentStage, setCurrentStage] = useState(1);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -28,6 +29,8 @@ const App = () => {
     if (savedPlayerName) {
       setPlayerName(savedPlayerName);
       setShowGameInfo(false);
+    } else {
+      setShowGameInfo(true);
     }
   }, []);
 
@@ -71,10 +74,14 @@ const App = () => {
     setCurrentQuestionIndex(0);
   };
 
-  const handleExit = () => {
-    setGameOver(true);
-    updateLeaderboard(playerName, score);
-  };
+const handleExit = () => {
+  setGameOver(true);
+  updateLeaderboard(playerName, score);
+  navigate('/'); // העבר לדף הבית
+  localStorage.removeItem('currentStage'); // ניקוי מצב שלב נוכחי אם קיים
+  localStorage.removeItem('currentQuestionIndex'); // ניקוי מצב אינדקס שאלה אם קיים
+};
+
 
   const updateLeaderboard = (name, score) => {
     const leaderboard = JSON.parse(localStorage.getItem('leaderboard')) || [];
@@ -100,34 +107,47 @@ const App = () => {
     }
   }, []);
 
-  const handleLogout = () => {
-    if (window.confirm("האם אתה בטוח שברצונך לצאת מהמשחק?")) {
-      setPlayerName('');
-      localStorage.removeItem('playerName');
-      setGameOver(false);
-      setCurrentStage(1);
-      setCurrentQuestionIndex(0);
-      setScore(0);
-      setLives(5);
-      setShowGameInfo(true);
-    }
-  };
+const handleLogout = () => {
+  if (window.confirm("האם אתה בטוח שברצונך לצאת מהמשחק?")) {
+    // איפוס המצב של המשחק
+    setPlayerName('');
+    localStorage.removeItem('playerName');
+    setGameOver(false);
+    setCurrentStage(1); // להחזיר לשלב הראשון
+    setCurrentQuestionIndex(0); // להחזיר לאינדקס השאלה הראשון
+    setScore(0); // לאפס את הניקוד
+    setLives(5); // להחזיר את מספר חיי השחקן ל-5
+    setStageCompleted(false); // לאפס את מצב סיום השלב
+    setShowGameInfo(true); // להציג את מסך ההסברים
+
+    // ניקוי מצב נוסף מ-localStorage אם קיים
+    localStorage.removeItem('currentStage');
+    localStorage.removeItem('currentQuestionIndex');
+    
+    navigate('/'); // העבר לדף הבית
+  }
+};
+
 
   const handleResetLeaderboard = () => {
     resetLeaderboard();
     alert('לוח התוצאות אולף בהצלחה!');
   };
 
-  const handleNewGame = () => {
-    setPlayerName('');
-    localStorage.removeItem('playerName');
-    setGameOver(false);
-    setCurrentStage(1);
-    setCurrentQuestionIndex(0);
-    setScore(0);
-    setLives(5);
-    setShowGameInfo(false); // הצג את מסך ההרשמה במקום את GameInfo
-  };
+const handleNewGame = () => {
+  // איפוס המצב של המשחק
+  setPlayerName('');
+  localStorage.removeItem('playerName');
+  setGameOver(false);
+  setCurrentStage(1); // להחזיר לשלב הראשון
+  setCurrentQuestionIndex(0); // להחזיר לאינדקס השאלה הראשון
+  setScore(0); // לאפס את הניקוד
+  setLives(5); // להחזיר את מספר חיי השחקן ל-5
+  setStageCompleted(false); // לאפס את מצב סיום השלב
+  setShowGameInfo(false); // להסתיר את מסך ההסברים
+};
+
+
 
   if (showGameInfo) {
     return <GameInfo onClose={() => setShowGameInfo(false)} />;
